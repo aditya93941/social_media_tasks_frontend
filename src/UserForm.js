@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 
 class UserForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      handle: '',
-      images: [],
-    };
-  }
+  state = {
+    name: '',
+    handle: '',
+    images: [],
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();

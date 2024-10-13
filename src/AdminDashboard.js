@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 
 class AdminDashboard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      submissions: [],
-    };
-  }
+  state = {
+    submissions: [],
+  };
 
   componentDidMount() {
     this.fetchSubmissions();
@@ -59,9 +56,8 @@ class AdminDashboard extends Component {
                 <p>@{submission.handle}</p>
                 <div>
                   {submission.images.map((image, index) => (
-  <img key={index} src={image} alt={`Uploaded image ${index + 1}`} width="100" />
-))}
-
+                    <img key={index} src={image} alt={`Uploaded image ${index + 1}`} width="100" />
+                  ))}
                 </div>
                 <button onClick={() => this.handleDelete(submission.id)}>Delete</button>
               </div>
