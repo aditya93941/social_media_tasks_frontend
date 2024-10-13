@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
+
 class UserForm extends Component {
   state = {
     name: '',
     handle: '',
     images: [],
+    onSubmit: false,
   };
 
   handleSubmit = (e) => {
@@ -26,6 +28,13 @@ class UserForm extends Component {
       .then((response) => response.json())
       .then((data) => {
         console.log('Success:', data);
+        this.setState({ name: '', handle: '', images: [], onSubmit: true });
+
+        // Set a timeout to hide the message after 3 seconds
+        setTimeout(() => {
+          this.setState({ onSubmit: false });
+        }, 3000);
+
         this.props.onSubmissionSuccess();
       })
       .catch((error) => {
@@ -40,43 +49,39 @@ class UserForm extends Component {
   };
 
   render() {
-    const { name, handle } = this.state;
+    const { name, handle, onSubmit } = this.state;
 
     return (
       <div className="user-form">
         <h2>Submit Your Details</h2>
         <form onSubmit={this.handleSubmit}>
-          <label>
-            Name:
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => this.setState({ name: e.target.value })}
-              required
-            />
-          </label>
+          <label>Name</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => this.setState({ name: e.target.value })}
+            required
+          />
 
-          <label>
-            Social Media Handle:
-            <input
-              type="text"
-              value={handle}
-              onChange={(e) => this.setState({ handle: e.target.value })}
-              required
-            />
-          </label>
+          <label>Social Media Handle</label>
+          <input
+            type="text"
+            value={handle}
+            onChange={(e) => this.setState({ handle: e.target.value })}
+            required
+          />
 
-          <label>
-            Upload Images:
-            <input
-              type="file"
-              multiple
-              onChange={this.handleFileChange}
-              required
-            />
-          </label>
+          <label>Upload Images</label>
+          <input
+            type="file"
+            multiple
+            onChange={this.handleFileChange}
+            required
+          />
 
           <button type="submit">Submit</button>
+
+          {onSubmit && <p className="onSubmit">Form Submitted Successfully!!</p>}
         </form>
       </div>
     );

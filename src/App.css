@@ -293,6 +293,9 @@ nav a:hover {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .submission-card:hover {
@@ -325,4 +328,25 @@ nav a:hover {
 
 .submission-card button:hover {
   background-color: #e07b00;
+}
+
+
+.onSubmit {
+  color: green;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+  animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
 }
