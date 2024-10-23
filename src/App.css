@@ -197,48 +197,12 @@ a:hover {
   }
 }
 
-@media (max-width: 480px) {
-  .container, .user-card, .user-form {
-    width: 100%;
-    padding: 15px;
-  }
-
-  h2, h3 {
-    font-size: 1.5em;
-  }
-
-  .uploaded-image {
-    height: 100px;
-  }
-
-  .user-form input[type="text"], 
-  .user-form input[type="file"] {
-    padding: 10px;
-  }
-
-  .user-form button {
-    font-size: 16px;
-  }
-
-  .admin-dashboard {
-    padding: 20px;
-  }
-
-  .user-list {
-    gap: 15px;
-  }
-
-  .submission-card {
-    width: 100%;
-    margin: 15px 0;
-  }
-}
-
 .App {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   justify-content: space-between;
+  font-family: 'Arial', sans-serif;
 }
 
 nav {
@@ -351,3 +315,38 @@ nav a:hover {
   margin: 8px 0;
 }
 
+.submission-card button {
+  padding: 10px 20px;
+  background-color: #FF8C00;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.submission-card button:hover {
+  background-color: #e07b00;
+}
+
+
+.onSubmit {
+  color: green;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+  animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
