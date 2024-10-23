@@ -330,7 +330,6 @@ nav a:hover {
   background-color: #e07b00;
 }
 
-
 .onSubmit {
   color: green;
   font-size: 16px;
@@ -344,9 +343,25 @@ nav a:hover {
     opacity: 1;
   }
   80% {
-    opacity: 0.5;
+    opacity: 1;
   }
   100% {
     opacity: 0;
+    visibility: hidden;
   }
+}
+
+.submission-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.uploaded-submission-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(255, 140, 0, 0.8);
 }
